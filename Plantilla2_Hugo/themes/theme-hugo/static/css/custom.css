@@ -1,0 +1,393 @@
+@font-face {
+  font-family: "NouvelR Regular";
+  font-style: normal;
+  font-weight: normal;
+  src: local("NouvelR Regular"),
+    url("/fonts/NouvelRRegular.woff") format("woff");
+}
+
+@font-face {
+  font-family: "NouvelR Light";
+  font-style: normal;
+  font-weight: normal;
+  src: local("NouvelR Light"), url("/fonts/NouvelRLight.woff") format("woff");
+}
+
+@font-face {
+  font-family: "NouvelR Book";
+  font-style: normal;
+  font-weight: normal;
+  src: local("NouvelR Book"), url("/fonts/NouvelRBook.woff") format("woff");
+}
+
+@font-face {
+  font-family: "NouvelR Semibold";
+  font-style: normal;
+  font-weight: normal;
+  src: local("NouvelR Semibold"),
+    url("/fonts/NouvelRSemibold.woff") format("woff");
+}
+
+@font-face {
+  font-family: "NouvelR Bold";
+  font-style: normal;
+  font-weight: normal;
+  src: local("NouvelR Bold"), url("/fonts/NouvelRBold.woff") format("woff");
+}
+
+@font-face {
+  font-family: "NouvelR Extrabold";
+  font-style: normal;
+  font-weight: normal;
+  src: local("NouvelR Extrabold"),
+    url("/fonts/NouvelRExtrabold.woff") format("woff");
+}
+
+:root {
+  --primary-accent: #3e3f40;
+  --navbar-border-top: #000000;
+  --button-border: #656666;
+  --link-focus: #efdf00;
+  --form-shadow: #8c8c8b;
+  --pagination-bg: #d9d9d6;
+  --link-hover-bg: #efdf00;
+  --navbar-focus: #efdf00;
+}
+
+body {
+  font-family: "NouvelR Regular", sans-serif !important;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "NouvelR Semibold", sans-serif !important;
+}
+
+.background-renault {
+  background-color: #ffffff;
+}
+
+#footer {
+  background-color: #656666;
+}
+
+#copyright {
+  background-color: #3e3f40;
+}
+
+.navbar-default {
+  background-color: var(--navbar-border-top);
+}
+
+.discover-link {
+  font-weight: bold;
+  text-decoration: none !important;
+  color: inherit !important;
+  position: relative;
+  border: none;
+}
+
+.discover-link::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 2px;
+  background-color: var(--link-hover-bg);
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  transition: background-color 0.3s ease;
+  text-decoration: none !important;
+}
+
+.discover-link:hover::after {
+  background-color: #000;
+}
+
+.svg-logo {
+  width: 35px;
+  height: auto;
+  max-width: 100%;
+  display: block;
+  margin: 0 auto;
+}
+
+.navbar-default .navbar-nav > li > a:hover {
+  color: #ffffff;
+  background-color: var(--navbar-border-top);
+}
+
+.navbar-default .navbar-nav > li > a {
+  color: #e7e7e7;
+  position: relative;
+  display: inline-block;
+}
+
+.navbar-default .navbar-nav > li > a::after {
+  content: "";
+  position: absolute;
+  bottom: 0px;
+  left: 0;
+  width: 0;
+  height: 3px;
+  background-color: var(--link-focus);
+  transition: width 0.3s ease;
+  display: inline-block;
+}
+
+.navbar-default .navbar-nav > li > a:hover::after {
+  width: 100%;
+}
+
+.navbar-default .navbar-nav > .active > a::after {
+  width: 100%;
+}
+.navbar-default .navbar-nav > .active > a,
+.navbar-default .navbar-nav > .active > a:hover {
+  color: #ffffff;
+  background-color: var(--navbar-border-top);
+}
+
+.card {
+  background-color: white;
+  box-shadow: 0 2px 5px var(--form-shadow);
+  padding: 20px;
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+  position: relative;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 10px var(--form-shadow);
+}
+
+.card .icon {
+  font-size: 40px;
+  color: var(--primary-accent);
+  margin-bottom: 15px;
+}
+
+.card .image {
+  height: 200px;
+  overflow: hidden;
+}
+
+.card .content {
+  padding: 10px 0;
+}
+
+.card h4 {
+  font-size: 24px;
+  color: var(--primary-accent);
+  margin: 10px 0;
+}
+
+.card p.intro {
+  color: #555;
+}
+
+.card p.price {
+  font-size: 18px;
+  color: var(--primary-accent);
+}
+
+.card .btn,
+.panel .btn {
+  background-color: var(--link-hover-bg);
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background-color 0.3s;
+}
+
+.card .btn:hover,
+.panel .btn:hover {
+  background-color: var(--navbar-focus);
+}
+
+.panel-heading {
+  padding: 5px 10px !important;
+}
+
+.background-heading {
+  background-color: #3e3f40;
+}
+
+.super-primary-button {
+  background-color: #efdf00;
+  color: #000000;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.super-primary-button:hover {
+  background-color: #f8eb4c;
+  color: #000000;
+}
+
+.image-animation {
+  transition: transform 0.3s ease !important;
+}
+
+.image-animation:hover {
+  transform: scale(1.1) !important;
+  transition: transform 0.3s ease !important;
+}
+
+.btn-template-transparent-black {
+  transition: transform 0.3s ease;
+}
+
+.btn-template-transparent-black:hover {
+  transform: scale(1.1);
+  transition: transform 0.3s ease;
+  background: #000;
+  color: #fff;
+  border-color: #000;
+}
+
+.home-carousel .owl-controls {
+  position: absolute;
+  margin-left: 100vh;
+  top: 46vh;
+}
+
+#all {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+#content {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.blog-link:hover {
+  text-decoration: none !important;
+  color: #000000 !important;
+  background-color: #f8eb4c !important;
+}
+
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > li > a:focus {
+  color: #ffffff;
+  background-color: transparent;
+}
+
+@media screen and (min-width: 768px) and (max-width: 992px) {
+  .md-w-full {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .sm-flex {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 0px;
+  }
+
+  .content-blog img {
+    width: 90%;
+  }
+
+  .content-blog {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .content-blog .read-more {
+    margin-top: 10px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .border-right {
+    border-right: 1px solid #ddd;
+  }
+}
+
+.container-coche {
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  background-repeat: no-repeat;
+  align-items: center;
+}
+.form-section {
+  background-color: #f2f2f2;
+  padding: 40px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  max-width: 500px;
+  margin: 5rem;
+  margin-top: -40px;
+  z-index: 99;
+}
+
+.form-section h1 {
+  font-size: 1.8em;
+  margin-bottom: 20px;
+}
+
+.form-section p {
+  font-size: 1.1em;
+  margin-bottom: 30px;
+}
+
+.input-group-cita-previa {
+  display: flex;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.input-group-cita-previa input {
+  flex: 1;
+  padding: 10px;
+  font-size: 1em;
+  border: 1px solid #000;
+  border-right: none;
+  border-radius: 5px 0 0 5px;
+}
+
+.separator {
+  width: 100%;
+  height: 1px;
+  background-color: black;
+  margin: 20px 0;
+}
+
+.cta-button-tasa {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #000000;
+  text-decoration: none !important;
+  border: 0;
+  color: #f2f2f2;
+  font-weight: bold;
+  font-size: 1em;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.cta-button-tasa:hover {
+  background-color: #efdf00;
+  color: #000000;
+  text-decoration: none !important;
+}

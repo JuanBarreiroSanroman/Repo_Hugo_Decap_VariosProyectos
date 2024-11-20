@@ -1,0 +1,64 @@
+<header class="navbar-affixed-top" data-spy="affix" data-offset-top="62">
+  <div class="navbar navbar-default yamm" role="navigation" id="navbar">
+      <div class="container">
+          <div class="navbar-header">
+              <a class="navbar-brand home" href="{{ "" | relLangURL }}" style="display: flex; align-items: center; flex-direction: row; flex-wrap: wrap; text-decoration: none; color:#e7e7e7;">
+                <svg class="svg-logo" xmlns="http://www.w3.org/2000/svg" height="2500" viewBox=".306 .394 379.652 500" width="1900">
+                  <path d="m304.375 250.394-133.72 250h-36.628l-133.721-250 133.14-250h37.79l-133.14 250 113.954 214.536 113.953-214.536-66.279-124.997 19.186-35.47zm-56.975-250h-38.372l-132.558 250 85.465 160.467 18.604-35.47-66.279-124.997 113.953-215.117 113.953 215.117-133.14 250h38.374l132.558-250z" fill="#FFFFFF" fill-rule="evenodd"/>
+                </svg>&nbsp;&nbsp;{{ .Site.Title }}
+              </a>
+              <div class="navbar-buttons">
+                  <button type="button" class="navbar-toggle btn-template-main" data-toggle="collapse" data-target="#navigation">
+                    <span class="sr-only"></span>
+                      <i class="fas fa-align-justify"></i>
+                  </button>
+              </div>
+          </div>
+          <!--/.navbar-header -->
+
+          <div class="navbar-collapse collapse" id="navigation">
+              <ul class="nav navbar-nav navbar-right text-center">
+                {{ $menu := .Site.Data.nav.barra_navegacion.menu }}
+
+                {{ range $menu }}
+                {{ $active := "" }}
+                
+                <!-- Comparación de URL actual y la del menú para la clase activa -->
+                {{ if eq .url ( .Page.Permalink ) }}
+                  {{ $active = "active" }}
+                {{ end }}
+
+                {{ if .has_children }}
+                  <li class="dropdown {{ $active }}">
+                      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{ .name }} <span class="caret"></span></a>
+                      <ul class="dropdown-menu">
+                          {{ range .children }}
+                          <li><a href="{{ .url }}">{{ .name }}</a></li>
+                          {{ end }}
+                      </ul>
+                  </li>
+                {{ else }}
+                <li class="{{ $active }}">
+                  <a href="{{ .url }}">{{ .name }}</a>
+                </li>
+                {{ end }}
+                {{ end }}
+              </ul>
+          </div>
+          <!--/.nav-collapse -->
+
+          <div class="collapse clearfix" id="search">
+              <form class="navbar-form" role="search">
+                  <div class="input-group">
+                      <input type="text" class="form-control" placeholder="Buscar">
+                      <span class="input-group-btn">
+                        <button type="submit" class="btn btn-template-main"><i class="fas fa-search"></i></button>
+                      </span>
+                  </div>
+              </form>
+          </div>
+          <!--/.nav-collapse -->
+      </div>
+  </div>
+</header>
+<!-- *** NAVBAR END *** -->

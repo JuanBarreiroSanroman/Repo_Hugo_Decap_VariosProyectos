@@ -1,0 +1,22 @@
+menu:
+  - name: Inicio
+    identifier: inicio
+    url: /
+  - name: Vehiculos
+    identifier: menu.vehiculos
+    url: /vehiculos/
+  - name: Servicios
+    identifier: menu.servicios
+    url: /servicios/
+  - name: Promociones
+    identifier: menu.promociones
+    url: /promociones/
+  - name: Noticias
+    identifier: menu.blog
+    url: /blog/
+  - name: Contacto
+    identifier: menu.contacto
+    url: /contacto/
+  - name: Quiénes somos
+    identifier: menu.quienes-somos
+    url: /quienes-somos/

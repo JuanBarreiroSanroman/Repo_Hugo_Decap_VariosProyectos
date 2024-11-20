@@ -1,0 +1,40 @@
+{{ if isset .Site.Params "promociones" }} {{ if .Site.Params.promociones.enable
+}}
+
+<section class="bar background-white">
+  <div class="container">
+    {{ $elements := default 3 .Site.Params.promociones.cols }} {{ $promociones
+    := where .Site.RegularPages "Section" "promociones" }} {{ $promociones :=
+    sort $promociones ".Params.weight" }} {{ $total_rows := div (len
+    $promociones) $elements }} {{ if gt (mod (len $promociones) $elements) 0 }}
+    {{ $total_rows = add $total_rows 1 }} {{ end }}
+
+    <div class="row">
+      {{ range $i, $sequence := seq $total_rows }} {{ range $j, $sequence2 :=
+      (seq $elements) }} {{ $promocion_index := add (mul $i $elements) $j }} {{
+      if lt $promocion_index (len $promociones) }} {{ $element := index
+      $promociones $promocion_index }}
+
+      <div class="col-md-{{ div 12 $elements }}">
+        <div class="card">
+          <div class="icon">
+            <i class="{{ $element.Params.icon }}"></i>
+          </div>
+          <h3 class="text-uppercase" style="color: var(--link-focus)">
+            {{ $element.Title }}
+          </h3>
+
+          <p>{{ $element.Params.description | markdownify }}</p>
+
+          {{ with $element.Params.url }}
+
+          <a href="{{ $element.Params.url }}" class="btn">Leer más</a>
+          {{ end }}
+        </div>
+      </div>
+      {{ end }} {{ end }} {{ end }}
+    </div>
+  </div>
+</section>
+
+{{ end }} {{ end }}

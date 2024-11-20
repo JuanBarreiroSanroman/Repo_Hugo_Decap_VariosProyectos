@@ -1,0 +1,24 @@
+{{ if .Site.Data.call_to_action.primer_banner }}
+  {{ if .Site.Data.call_to_action.primer_banner.enable }}
+    <section class="bar background-image-fixed-2 no-mb color-white text-center">
+      <div class="dark-mask"></div>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="icon icon-lg"><i class="{{ .Site.Data.call_to_action.primer_banner.icon }}"></i></div>
+            <h3 class="text-uppercase">{{ .Site.Data.call_to_action.primer_banner.title | markdownify }}</h3>
+            <p class="lead">{{ .Site.Data.call_to_action.primer_banner.subtitle | markdownify }}</p>
+            <p class="text-center">
+              <a href="mailto:{{ .Site.Data.call_to_action.primer_banner.contact_email }}" class="btn btn-template-transparent-black btn-lg">
+                CONTÁCTANOS
+              </a>
+              <a href="tel:{{ .Site.Data.call_to_action.primer_banner.contact_phone }}" class="btn btn-template-transparent-black btn-lg" style="margin-left:25px;">
+                LLÁMANOS
+              </a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  {{ end }}
+{{ end }}

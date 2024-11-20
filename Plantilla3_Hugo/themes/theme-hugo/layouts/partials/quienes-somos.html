@@ -1,0 +1,19 @@
+<div class="container" id="quienes-somos" style="margin-top: 50px; margin-bottom: 50px;">
+    <div class="row" id="contacto" style="display: flex; align-items: center; flex-wrap: wrap;">
+        <!-- Columna izquierda: Imagen -->
+        <div class="col-xs-12 col-md-6" style="display: flex; justify-content: center; align-items: center;">
+            <div class="text-center">
+                <img src="{{ relURL "img/quienes-somos.webp" }}" alt="Imagen de quienes somos" style="width: 100%; height: auto; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+            </div>
+        </div>
+
+        <!-- Columna derecha: Panel que incluye Nuestro Equipo y Nuestro Compromiso -->
+        <div class="col-xs-12 col-md-6">
+            <div class="panel panel-default" style="border-radius: 12px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+                <div class="panel-body text-center">
+                    {{ .Content }}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

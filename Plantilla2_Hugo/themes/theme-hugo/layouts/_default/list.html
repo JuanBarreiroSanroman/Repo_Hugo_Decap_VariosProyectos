@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode }}">
+
+  <head>
+    {{ partial "headers.html" . }}
+  </head>
+
+  <body>
+
+    <div id="all">
+        {{ partial "nav.html" . }}
+
+        {{ partial "breadcrumbs.html" . }}
+
+        <div id="content" style="margin-top:40px;">
+            <div class="container" style="max-width: 100%; overflow-y: auto;">
+                <div class="row">
+                    <div class="col-xs-12 col-md-3 col-md-push-9">
+                        {{ partial "sidebar.html" . }}
+                    </div>
+                
+                    <div class="col-xs-12 col-md-9 col-md-pull-3" id="blog-listing-medium">
+                        {{ $paginator := .Paginate (where .Data.Pages "Type" "in" .Site.Params.mainSections) }}
+                        {{ range $paginator.Pages }}
+                        <section class="post no-mb" style="margin-top:25px;">
+                            <div class="row">
+                                <div class="col-md-12 content-blog">
+                                    <h2><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
+                                    {{ if not .Site.Params.recent_posts.hide_summary }}
+                                    <p class="intro">{{ .Summary }}</p>
+                                    <p class="read-more"><a href="{{ .Permalink }}" class="super-primary-button text-uppercase" style="text-decoration: none;">Continuar leyendo</a>
+                                    </p>
+                                    {{ end }}
+                                </div>
+                            </div>
+                        </section>
+                        {{ end }}
+                
+                        <ul class="pager">
+                            {{ if .Paginator.HasPrev }}
+                            <li class="previous"><a href="{{ .Paginator.Prev.URL | relURL }}">&larr; Más reciente</a></li>
+                            {{ else }}
+                            <li class="previous disabled"><a href="#">&larr; Más reciente</a></li>
+                            {{ end }}
+                
+                            {{ if .Paginator.HasNext }}
+                            <li class="next"><a href="{{ .Paginator.Next.URL | relURL }}">Más antiguo &rarr;</a></li>
+                            {{ else }}
+                            <li class="next disabled"><a href="#">Más antiguo &rarr;</a></li>
+                            {{ end }}
+                        </ul>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+
+        {{ partial "footer.html" . }}
+
+    </div>
+
+    {{ partial "scripts.html" . }}
+
+  </body>
+</html>

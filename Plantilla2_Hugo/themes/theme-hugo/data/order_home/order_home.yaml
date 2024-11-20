@@ -1,0 +1,28 @@
+order:
+  - seccion: nav
+    nombre: Barra de navegación
+    enable: true
+  - seccion: carousel
+    nombre: Carrousel de imágenes
+    enable: true
+  - seccion: banner_cita
+    nombre: Banner de la cita previa
+    enable: true
+  - seccion: vehiculos
+    nombre: Listado de vehículos
+    enable: true
+  - seccion: first_call_to_action
+    nombre: Primera sección de atención personalizada
+    enable: true
+  - seccion: servicios
+    nombre: Listado de servicios
+    enable: true
+  - seccion: second_call_to_action
+    nombre: Segunda sección de atención personalizada
+    enable: true
+  - seccion: clientes
+    nombre: Listado de clientes
+    enable: true
+  - seccion: footer
+    nombre: Pie de la página
+    enable: true

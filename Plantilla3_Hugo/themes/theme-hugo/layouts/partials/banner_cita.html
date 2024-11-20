@@ -1,0 +1,17 @@
+{{ $banner := .Site.GetPage "banner_cita.md" }}
+
+<div
+  class="container-coche"
+  style="background-image: url('{{ $banner.Params.imagen_background | relURL }}')"
+>
+  <div class="form-section">
+    <h1>{{ $banner.Params.title }}</h1>
+    <p>{{ $banner.Params.description }}</p>
+    <div class="input-group-cita-previa">
+      <input type="text" placeholder="1234AAA" />
+      <button class="cta-button-tasa">ok</button>
+    </div>
+    <div class="separator"></div>
+    <button class="cta-button-tasa">no conozco mí matricula</button>
+  </div>
+</div>

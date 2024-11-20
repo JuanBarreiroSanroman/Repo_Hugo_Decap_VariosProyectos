@@ -1,0 +1,52 @@
+{{ if default true .Site.Params.CarouselHomepage.enable }} 
+    {{ $carousel := where .Site.Pages "Section" "carousel" }} 
+    {{ if gt (len $carousel) 0 }}
+        <section class="no-mb">
+            <div class="home-carousel">
+                <div
+                    class="homepage owl-carousel"
+                    data-autoplay="{{ default true .Site.Params.CarouselHomepage.auto_play }}"
+                    data-slide-speed="{{ default 2000 .Site.Params.CarouselHomepage.slide_speed }}"
+                    data-pagination-speed="{{ default 1000 .Site.Params.CarouselHomepage.pagination_speed }}"
+                    style="padding: 0px"
+                >
+                    {{ range sort $carousel "Params.weight" }}
+                        {{ if and .Params.title (or .Params.href .Params.image) }} <!-- Verifica que title no esté vacío y que haya href o image -->
+                        <div class="item" style="height: 50vh; position: relative;">
+                            {{ if .Params.href }}
+                            <a
+                                href="{{ .Params.href }}"
+                                target="_blank"
+                                title="{{ .Params.title | safeHTML }}"
+                            >
+                            {{ end }}
+                            <div class="row" style="height: 100%;">
+                                <div class="col-sm-12" style="position: absolute; top: 0; z-index: 2; color: white; padding: 10vh;">
+                                    <h1>{{ .Params.title | safeHTML }}</h1>
+                                    {{ if .Params.description }} <!-- Solo muestra la descripción si no está vacía -->
+                                    {{ .Params.description | safeHTML }}
+                                    {{ end }}
+                                </div>
+                                {{ if .Params.image }} <!-- Solo muestra la imagen si no está vacía -->
+                                <div class="col-sm-12">
+                                    <img
+                                        class="img-responsive"
+                                        src="{{ .Params.image }}"
+                                        alt=""
+                                        style="width: 100vw; height: 50vh; object-fit: cover"
+                                    />
+                                </div>
+                                {{ end }}
+                            </div>
+                            {{ if .Params.href }}
+                            </a>
+                            {{ end }}
+                        </div>
+                        {{ end }} <!-- Fin de la verificación de la condición -->
+                    {{ end }}
+                </div>
+                <!-- /.project owl-slider -->
+            </div>
+        </section>
+    {{ end }} 
+{{ end }}

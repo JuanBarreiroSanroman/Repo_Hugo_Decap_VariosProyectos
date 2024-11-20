@@ -1,0 +1,44 @@
+{{ if isset .Site.Params "servicios" }} {{ if .Site.Params.servicios.enable }}
+
+<section class="bar background-renault no-mb">
+  <div class="container">
+    {{ $elements := default 3 .Site.Params.servicios.cols }} {{ $servicios :=
+    where .Site.RegularPages "Section" "servicios" }} {{ $servicios := sort
+    $servicios ".Params.weight" }} {{ $total_rows := div (len $servicios)
+    $elements }} {{ if gt (mod (len $servicios) $elements) 0 }} {{ $total_rows =
+    add $total_rows 1 }} {{ end }} {{ range $i, $sequence := seq $total_rows }}
+    <div
+      class="row row-{{ $i }} row-{{ if eq (mod $i 2) 0 }}odd{{ else }}even{{ end }}"
+    >
+      {{ range $j, $sequence2 := (seq $elements) }} {{ $servicio_index := add
+      (mul $i $elements) $j }} {{ if lt $servicio_index (len $servicios) }} {{
+      $element := index $servicios $servicio_index }}
+
+      <div
+        class="col-md-{{ div 12 $elements }} col-{{ $j }} col-{{ if eq (mod $j 2) 0 }}odd{{ else }}even{{ end }}"
+      >
+        <div class="box-simple">
+          {{ with $element.Params.url }}
+
+          <a href="{{ . }}">
+            {{ end }}
+            <div class="icon">
+              <i class="{{ $element.Params.icon }}"></i>
+            </div>
+            {{ with $element.Params.url }}
+          </a>
+          {{ end }}
+          <h3 style="color: var(--link-focus)">
+            {{ $element.Title | markdownify }}
+          </h3>
+
+          <p>{{ $element.Params.description | markdownify }}</p>
+        </div>
+      </div>
+      {{ end }} {{ end }}
+    </div>
+    {{ end }}
+  </div>
+</section>
+
+{{ end }} {{ end }}

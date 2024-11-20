@@ -1,0 +1,56 @@
+<div class="container" id="contacto" style="margin-top: 50px;">
+    <div class="panel panel-default" style="border-radius: 12px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+        <div class="panel-body">
+            <div class="row">
+                <!-- Columna izquierda: Información de contacto y escríbanos -->
+                <div class="col-md-4 border-right">
+                    <div class="text-center">
+                        <h4 class="text-uppercase" style="font-weight: bold;">INFORMACIÓN DE CONTACTO</h4>
+                        {{ .Site.Params.address | safeHTML }}
+
+                        <hr style="margin: 50px 0;"> <!-- Línea divisoria entre las secciones -->
+
+                        {{ .Content }}
+                    </div>
+                </div>
+
+                <!-- Columna derecha: Formulario de contacto -->
+                <div class="col-md-8">
+
+                    <h3 class="text-uppercase text-center bold" style="color: var(--link-focus);">ESCRÍBENOS</h3>
+
+                    <hr style="margin: 30px 0;">
+
+                    <form action="/contacto" method="POST" class="contact-form">
+                        <div class="form-group col-md-6">
+                            <!--<label for="name" style="font-weight: bold;">Nombre y apellidos: </label>-->
+                            <input type="text" id="name" name="name" class="form-control" placeholder="Nombre y apellidos" required>
+                        </div>
+
+                        <div class="form-group col-md-6">
+                            <!--<label for="email" style="font-weight: bold;">Teléfono: </label>-->
+                            <input type="number" id="phone" name="phone" class="form-control" placeholder="Teléfono" required>
+                        </div>
+
+                        <div class="form-group col-md-12">
+                            <!--<label for="email" style="font-weight: bold;">Correo electrónico: </label>-->
+                            <input type="email" id="email" name="email" class="form-control" placeholder="Correo electrónico" required>
+                        </div>
+
+                        <div class="form-group col-md-12">
+                            <!--<label for="message" style="font-weight: bold;">Mensaje</label>-->
+                            <textarea id="message" name="message" class="form-control" rows="5" required></textarea>
+                        </div>
+
+                        <div class="text-center">
+                            <button type="submit" class="super-primary-button">ENVIAR MENSAJE</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+{{ partial "map.html" . }}

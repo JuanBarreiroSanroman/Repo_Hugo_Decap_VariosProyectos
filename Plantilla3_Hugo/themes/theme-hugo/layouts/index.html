@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode }}">
+  <head>
+    {{ partial "headers.html" . }}
+  </head>
+  <body>
+
+    <div id="all">
+      {{ $contexto := . }}
+      {{ $order := .Site.Data.order_home.order_home.order }}
+
+      {{ range $order }}
+        {{ if .enable }}
+        {{ if eq .seccion "vehiculos" }}
+          <div class="heading text-center" style="margin-top:40px;">
+            <h2>VEHÍCULOS DISPONIBLES</h2>
+          </div>
+        {{ else if eq .seccion "servicios" }}
+          <div class="heading text-center" style="margin-top:40px;">
+            <h2>SERVICIOS DISPONIBLES</h2>
+          </div>
+        {{ end}}
+          {{ partial (print .seccion ".html") $contexto }}
+        {{ end }}
+      {{ end }}
+
+    </div>
+
+    {{ partial "scripts.html" . }}
+  </body>
+</html>

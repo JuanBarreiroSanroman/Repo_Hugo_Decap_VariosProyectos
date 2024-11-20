@@ -1,0 +1,44 @@
+<footer id="footer">
+    <div class="container">
+
+        {{ if isset .Site.Data.footer.footer "about_us" }}
+        <div class="col-md-8 col-sm-6 text-center">
+            <h4>ACERCA DE NOSOTROS</h4>
+            {{ .Site.Data.footer.footer.about_us | safeHTML }}
+            <hr class="hidden-md hidden-lg hidden-sm">
+        </div>
+        <!-- /.col-md-8 -->
+        {{ end }}
+
+        {{ if isset .Site.Data.footer.footer "address" }}
+        <div class="col-md-4 col-sm-6 text-center">
+            <h4>DATOS DE CONTACTO</h4>
+            {{ .Site.Data.footer.footer.address | safeHTML }}
+            <hr class="hidden-md hidden-lg hidden-sm">
+        </div>
+        <!-- /.col-md-4 -->
+        {{ end }}
+
+    </div>
+    <!-- /.container -->
+</footer>
+
+<!-- /#footer -->
+
+<!-- *** FOOTER END *** -->
+
+<!-- *** COPYRIGHT ***
+_________________________________________________________ -->
+
+<div id="copyright">
+    <div class="container">
+        <div class="col-md-12">
+            {{ if isset .Site.Data.footer.footer "copyright" }}
+            <p class="text-center">{{ .Site.Data.footer.footer.copyright | safeHTML }}</p>
+            {{ end }}
+        </div>
+    </div>
+</div>
+<!-- /#copyright -->
+
+<!-- *** COPYRIGHT END *** -->

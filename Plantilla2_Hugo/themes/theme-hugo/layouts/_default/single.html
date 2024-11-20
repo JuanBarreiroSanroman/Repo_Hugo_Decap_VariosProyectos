@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode }}">
+
+  <head>
+    {{ partial "headers.html" . }}
+  </head>
+
+  <body>
+
+    <div id="all">
+        {{ partial "nav.html" . }}
+
+        {{ partial "breadcrumbs.html" . }}
+
+        <div id="content">
+            {{ if isset .Params "id" }} 
+            {{ partial (printf "%s.html" .Params.id) . }}
+          {{ else if isset .Params "brand" }} 
+            {{ partial "ficha_coche.html" . }}
+          {{ else }}
+            <div class="container">
+
+                <div class="row">
+
+                    <div class="col-md-12" style="display: flex;flex-direction: column; align-items: flex-end; margin-bottom: 25px;">
+
+                        <div>
+                          {{ .Content }}
+                        </div>
+                        <a href="/blog/" class="super-primary-button text-uppercase" style="margin-top:25px;"></i>VOLVER</a>
+                    </div>
+                </div>
+                <!-- /.row -->
+
+            </div>
+            <!-- /.container -->
+
+            {{ end }}
+        </div>
+        <!-- /#content -->
+
+        {{ partial "footer.html" . }}
+
+    </div>
+    <!-- /#all -->
+
+    {{ partial "scripts.html" . }}
+
+  </body>
+</html>

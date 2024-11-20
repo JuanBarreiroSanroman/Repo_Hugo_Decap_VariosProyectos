@@ -1,0 +1,40 @@
+{{ if isset .Site.Params "list_cars" }}
+<section class="bar background-renault no-mb">
+  <div class="container sm-flex">
+    <div
+      class="row"
+      style="
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: baseline;
+      "
+    >
+      <!-- Listar todos los coches desde content/vehiculos/ -->
+      {{ $cars := where .Site.Pages "Section" "vehiculos" }} {{ range $car :=
+      $cars }}
+      <div class="col-md-3 col-sm-6">
+        <div class="image" style="overflow: hidden">
+          <a href="{{ $car.RelPermalink }}">
+            <img
+              src="{{ $car.Params.url_1 | relURL }}"
+              class="img-responsive image-animation"
+              alt="{{ $car.Title }}"
+            />
+          </a>
+        </div>
+        <div class="content">
+          <a href="{{ $car.RelPermalink }}" style="text-decoration: none">
+            <h4>{{ $car.Title }}</h4>
+          </a>
+          <a class="discover-link" href="{{ $car.RelPermalink }}">descúbrelo</a>
+        </div>
+      </div>
+      {{ end }}
+    </div>
+    <!-- /.row -->
+  </div>
+  <!-- /.container -->
+</section>
+<!-- /.bar -->
+{{ end }}

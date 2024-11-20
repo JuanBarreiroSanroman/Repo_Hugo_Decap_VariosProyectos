@@ -1,0 +1,44 @@
+backend:
+  name: github
+  repo: "JuanBarreiroSanroman/Repositorio_Hugo_Decap_VariosProyectos"  # Reemplaza con tu usuario y nombre del repositorio
+  branch: master  # O la rama que estés usando, como "master"
+  auth_scope: "repo"  # Esto otorga acceso completo a tu repositorio
+  api_root: "https://api.github.com"  # Si es necesario especificar la URL API
+  token: "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"  # Deberás crear un token de acceso personal en GitHub (ver paso 2)
+
+
+
+media_folder: "static/uploads" # Carpeta donde se guardan los archivos multimedia
+public_folder: "/uploads"      # Ruta pública para acceder a los archivos multimedia
+site_url: "http://localhost:8080/Prueba_Decap"
+
+collections:
+
+  - name: "plantilla1"
+    label: "Web 1"
+    folder: "Plantilla1_Hugo/themes/theme-hugo/content/plantilla1"
+    create: false
+    format: "md"  # Usamos "md" en lugar de "markdown"
+    fields:
+      - { name: "title", label: "Título", widget: "string" }
+      - { name: "body", label: "Contenido", widget: "string" }
+
+
+  - name: "plantilla2"
+    label: "Web 2"
+    folder: "Plantilla2_Hugo/themes/theme-hugo/content"
+    create: false
+    format: "md"
+    fields:
+      - { name: "title", label: "Título", widget: "string" }
+      - { name: "body", label: "Contenido", widget: "markdown" }
+
+
+  - name: "plantilla3"
+    label: "Web 3"
+    folder: "Plantilla3_Hugo/themes/theme-hugo/content"
+    create: false
+    format: "md"
+    fields:
+      - { name: "title", label: "Título", widget: "string" }
+      - { name: "body", label: "Contenido", widget: "markdown" }
